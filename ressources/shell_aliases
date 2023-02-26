@@ -1,0 +1,54 @@
+
+# Improve default dehaviour
+alias mv='mv -i'
+alias mkdir='mkdir -p'
+alias psa='ps -aef'
+
+alias la='ls -a'
+alias ls='ls -hF --color' # add colors for filetype recognition
+alias l='ls -1'
+alias la='ls -Al' # show hidden files
+alias lx='ls -lXB' # sort by extension
+alias lk='ls -lSr' # sort by size
+alias lc='ls -lcr' # sort by change time
+alias lu='ls -lur' # sort by access time
+alias lr='ls -lR' # recursive ls
+alias lt='ls -ltr' # sort by date
+alias lm='ls -al --color=none|less' # pipe through 'less'
+alias ll='ls -al'
+alias tree='tree -Csu' # nice alternative to 'ls'
+alias grep='grep --color=auto'
+
+# Software updates / upgrades
+alias upd='sudo aptitude update'
+alias upg='sudo aptitude dist-upgrade'
+alias updg='sudo apt-get update && sudo apt-get dist-upgrade -y && sudo apt-get autoremove -y && sudo apt-get autoclean -y && sudo apt-get clean'
+
+# apache
+if [ -d "/c/" ]
+then
+    # windows
+    alias watch_apache_error_log="tail -F /c/wamp64/logs/php_error.log | perl -pe 's/\[error\]\s+\[client.*?\]//; s/, referer:.*//'" # watch apache (wamp) error log
+    alias watch_apache_all_logs="tail -F /c/wamp64/logs/*.log | perl -pe 's/\[error\]\s+\[client.*?\]//; s/, referer:.*//'"          # watch apache (wamp) all log files
+else
+    # linux
+    alias watch_apache_error_log="tail -F /var/log/apache2/error.log | perl -pe 's/\[error\]\s+\[client.*?\]//; s/, referer:.*//'"  # watch apache error log
+    alias watch_apache_all_logs="tail -F /var/log/apache2/*.log | perl -pe 's/\[error\]\s+\[client.*?\]//; s/, referer:.*//'"       # watch apache all log files
+fi
+
+# git
+alias m='git checkout master'
+alias mm='cd $(pwd) && git checkout master && git remote update -p && git pull && git branch'
+alias grup='git remote update -p'
+alias grm='git rebase master'
+alias grim='git rebase -i master'
+alias mmr='CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD) ; mm ; git checkout ${CURRENT_BRANCH} ; grim'
+alias wip='git add -A ; git commit -m "wip"'
+# tpyo aliases
+alias gti='git'
+alias gir='git'
+
+# Local aliases
+if [ -f ~/.bash_aliases_local ]; then
+    . ~/.bash_aliases_local
+fi
