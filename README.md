@@ -2,6 +2,7 @@
 
 ## Les fichiers
 Créer le dossier ~/.gif-conf  
+
 Y déposer les fichiers de /ressources :
  - git_aliases  
  - git_config  
@@ -14,12 +15,12 @@ Créer ou mettre à jour le fichier ~/.bashrc
 
 ## Editer la configuration de votre GitBash
 
-Créer ou mettre à jour votre fichier ~/.bashrc  avec le contenu du .bashrc  
+Créer ou mettre à jour votre fichier ~/.bashrc  
+Ajouter en fin de fichier 
+`source ~/.git-conf/shell_config.sh` 
 
 
-Editer le fichier .gitconfig de GitBash
-`C:\Users\KDO18808\AppData\Local\Programs\Git\etc`
-
+Créer ou mettre à jour votre fichier ~/.gitconfig 
 
 ```sh
 [user]
@@ -32,9 +33,14 @@ Editer le fichier .gitconfig de GitBash
 	path = ~/.git-conf/git_aliases
 ```
 ## Installation des fonts
-Installer les fonts présentes dans /font  
+Installer les fonts présentes dans /font
+Copier les dans windows puis clic droit / installer  
+
+## Pour GITBASH
 Dans gitBash, choisir la police "Agave".
 
+## Bug utf8 symbol
+Possible bug de symbol utf8, editer le fichier shell_config.sh pour adapter.
 
 ## Pour VSCODE  
 and now put these lines in setting.json for the vscode terminal color configuration 
